@@ -2,12 +2,17 @@ import React from 'react'
 import  Link  from 'next/link'
 import { Cursor, useTypewriter} from 'react-simple-typewriter';
 import BackgroundCircles from './BackgroundCircles';
-type Props = {}
+import { PageInfo } from '../typings';
+import { urlFor } from '../sanity';
 
-const Hero = (props: Props) => {
+type Props = {
+    pageInfo: PageInfo
+}
+
+const Hero = ({pageInfo}: Props) => {
     const [text, count] = useTypewriter({
         words: [
-            "Hi, The Name's Oleg Sinotov",
+           `Привет, меня зовут ${pageInfo?.name}`,
             "Frontend-developer",
             "<searchForNew />"],
         loop: true,
@@ -18,22 +23,22 @@ const Hero = (props: Props) => {
         {
             id: 1,
             link:"#about",
-            name: 'About'
+            name: 'Обо мне'
         },
         {
             id: 2,
             link:"#experience",
-            name: 'Experience'
+            name: 'Опыт работы'
         },
         {
             id: 3,
             link:"#skills",
-            name: 'Skills'
+            name: 'Навыки'
         },
         {
             id: 4,
             link:"#projects",
-            name: 'Projects'
+            name: 'Проекты'
         },
     ]
   return (
@@ -41,9 +46,9 @@ const Hero = (props: Props) => {
         <BackgroundCircles/>
         <img 
         className='relative rounded-full h-32 w-32 mx-auto object-cover'
-        src="https://static-cdn.jtvnw.net/jtv_user_pictures/150e5ead-016f-4d07-ab73-a1bcaf4ed4c6-profile_image-300x300.png" alt=""/>
+        src={urlFor(pageInfo.heroImage).url()} alt=""/>
         <div className='z-20'>
-            <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>Software Engineer</h2>
+            <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>{pageInfo.role}</h2>
         <h1 className='text-5xl lg:text-6xl font-semibold px-10'>
          <span className='mr-3'>{text}</span>
           <Cursor cursorColor='#f7ab0a'/>  

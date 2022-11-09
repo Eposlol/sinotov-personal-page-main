@@ -1,9 +1,13 @@
 import React from 'react'
 import {motion} from 'framer-motion'
+import { Experience } from '../typings'
+import { urlFor } from '../sanity'
 
-type Props = {}
+type Props = {
+    experience: Experience
+}
 
-const ExpirienceCard = (props: Props) => {
+const ExpirienceCard = ({experience}: Props) => {
   return (
     <article className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[300px] sm:w-[500px] md:w-[600px] xl:w-[900px] snap-center 
     bg-[#292929] hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden scroll-m-0 p-10 z-10'
@@ -21,35 +25,31 @@ const ExpirienceCard = (props: Props) => {
         }}
         viewport={{once: true}}
         className='w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center'
-        src="https://bk-company.ru/themes/default/img/about/about-2-bg.png" alt=""/>
+        src={urlFor(experience?.companyImage).url()} alt=""/>
         <div className='px-0 md:px-10'>
             <h4 className='text-4xl font-light'>
-                Web designer
+            {experience.jobTitle}
             </h4>
-            <p className='font-bold text-2xl mt-1'>BK-company</p>
+            <p className='font-bold text-2xl mt-1'>{experience.company}</p>
             <div className='flex space-x-2 my-2'>
+             {experience.technologies.map(technology => (
                 <img 
-                className='h-10 w-10 rounded-full'
-                src="https://sinotov-developer-portfolio.netlify.app/static/media/react.0cf951a69d8e58f83f9d.png" alt=""/>
-                 <img 
-                className='h-10 w-10 rounded-full'
-                src="https://sinotov-developer-portfolio.netlify.app/static/media/react.0cf951a69d8e58f83f9d.png" alt=""/>
-                 <img 
-                className='h-10 w-10 rounded-full'
-                src="https://sinotov-developer-portfolio.netlify.app/static/media/react.0cf951a69d8e58f83f9d.png" alt=""/>
-                 <img 
-                className='h-10 w-10 rounded-full'
-                src="https://sinotov-developer-portfolio.netlify.app/static/media/react.0cf951a69d8e58f83f9d.png" alt=""/>
+                key={technology._id}
+                className="h-10 w-10 rounded-full"
+                src={urlFor(technology?.image).url()} alt=""
+                />
+             ))}
             </div>
             <p className='uppercase py-5 to-gray-300'> 
-            Starterd work
+                {new Date(experience.dateStarted).toDateString()} - {" "} {
+                experience.isCurrentWorkingHere ? "По настоящее время" : new Date(experience.dateEnded).toDateString() }
             </p>
-            <ul className='list-disc space-y-4 ml-5 text-sm xl:text-lg'>
-                <li>Summary points Summary points Summary points Summary points</li>
-                <li>Summary points Summary points Summary points Summary points</li>
-                <li>Summary points Summary points Summary points Summary points</li>
-                <li>Summary points Summary points Summary points Summary points</li>
-                
+            <ul className='list-disc space-y-4 ml-5 text-sm xl:text-lg max-h-55 h-full p-r-5 max-w-40 overflow-y-scroll scrollbar scrollbar-thin scrollbar-track-black scrollbar-thumb-[#f7ab0a]/80'>
+              { experience.points.map((point, i )=> (
+                <li 
+                key={i}
+                >{point}</li>
+              ))}    
             </ul>
         </div>
     </article>
