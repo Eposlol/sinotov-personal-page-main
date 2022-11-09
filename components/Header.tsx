@@ -3,7 +3,7 @@ import { SocialIcon } from 'react-social-icons';
 import {motion} from 'framer-motion'
 import  Link  from 'next/link'
 import { Social } from '../typings';
-import { HiOutlineMail} from 'react-icons/hi'
+import { HiOutlineMail } from 'react-icons/hi'
 type Props = {
     socials: Social[]
 }

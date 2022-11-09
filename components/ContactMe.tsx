@@ -19,7 +19,7 @@ const ContactMe = (props: Props) => {
   return (
     <div className='h-screen flex relative text-center flex-col md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
          <h3
-        className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl z-20'
+        className='absolute top-24 uppercase tracking-[20px] text-gray-500 md:text-2xl text-1xl z-20'
         >
         контакты</h3>
         <div className='flex flex-col space-y-10'>

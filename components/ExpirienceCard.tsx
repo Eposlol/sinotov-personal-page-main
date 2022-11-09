@@ -8,9 +8,12 @@ type Props = {
 }
 
 const ExpirienceCard = ({experience}: Props) => {
+
+ 
+
   return (
-    <article className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[300px] sm:w-[500px] md:w-[600px] xl:w-[900px] snap-center 
-    bg-[#292929] hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden scroll-m-0 p-10 z-10'
+    <article className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[320px] sm:w-[500px] md:w-[600px] xl:w-[900px] snap-center 
+    bg-[#292929] hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden scroll-m-0  p-5 md:p-10  z-10'
     >
         <motion.img 
         initial={{
@@ -35,16 +38,16 @@ const ExpirienceCard = ({experience}: Props) => {
              {experience.technologies.map(technology => (
                 <img 
                 key={technology._id}
-                className="h-10 w-10 rounded-full"
+                className="h-5 w-5  md:h-10 md:w-10 rounded-full"
                 src={urlFor(technology?.image).url()} alt=""
                 />
              ))}
             </div>
             <p className='uppercase py-5 to-gray-300'> 
-                {new Date(experience.dateStarted).toDateString()} - {" "} {
-                experience.isCurrentWorkingHere ? "По настоящее время" : new Date(experience.dateEnded).toDateString() }
+                {new Date(experience.dateStarted).toLocaleString("ru").split(',').slice(0,1)} - {" "} {
+                experience.isCurrentWorkingHere ? "По настоящее время" : new Date(experience.dateEnded).toLocaleString("ru").split(',').slice(0,1) }
             </p>
-            <ul className='list-disc space-y-4 ml-5 text-sm xl:text-lg max-h-55 h-full p-r-5 max-w-40 overflow-y-scroll scrollbar scrollbar-thin scrollbar-track-black scrollbar-thumb-[#f7ab0a]/80'>
+            <ul className='list-disc list-inside space-y-2 md:space-y-4 ml-5 text-sm xl:text-lg max-h-35 h-full p-r-5 max-w-40 overflow-y-scroll scrollbar scrollbar-thin scrollbar-track-black scrollbar-thumb-[#f7ab0a]/80'>
               { experience.points.map((point, i )=> (
                 <li 
                 key={i}
