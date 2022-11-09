@@ -3,7 +3,7 @@ import { SocialIcon } from 'react-social-icons';
 import {motion} from 'framer-motion'
 import  Link  from 'next/link'
 import { Social } from '../typings';
-
+import { HiOutlineMail} from 'react-icons/hi'
 type Props = {
     socials: Social[]
 }
@@ -49,14 +49,9 @@ const Header = ({socials}: Props) => {
             transition={{
                 duration: 1.5,
             }}
-            className='flex flex-row items-center to-gray-300 cursor-pointer'>
-                <SocialIcon
-                className='cursor-pointer'
-                network='email'
-                fgColor='gray'
-                bgColor='transparent'
-                url=''
-                />
+            className='flex flex-row items-center text-gray-300 cursor-pointer justify-center py-2'>
+                <HiOutlineMail className='cursor-pointer text-gray-500 pr-2 h-auto w-10'
+             />
                 <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>Будь на связи</p>
             </motion.div>
          </Link>
