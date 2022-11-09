@@ -21,33 +21,33 @@ const ContactMe = (props: Props) => {
          <h3
         className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl z-20'
         >
-        Contact</h3>
+        контакты</h3>
         <div className='flex flex-col space-y-10'>
-            <h4 className='text-4xl font-semibold  text-center'>
-            <span className='underline decoration-[#f7ab0a] '>Let's Talk.</span>
+            <h4 className='text-2xl sm:text-4xl font-semibold  text-center'>
+            <span className='underline decoration-[#f7ab0a] '>Свяжитесь со мной</span>
             </h4>
             <div className='space-y-10'>
                 <div className='flex items-center space-x-5'>
                     <PhoneIcon className='text-[#f7ab0a] h-7 w-7 animate-pulse'/>
-                    <p className='text-2xl'>+7 (915) 706 13 83</p>
+                    <p className='text-1xl sm:text-2xl'>+7 (915) 706 13 83</p>
                 </div>
                 <div className='flex items-center space-x-5'>
                     <EnvelopeIcon className='text-[#f7ab0a] h-7 w-7 animate-pulse'/>
-                    <p className='text-2xl'>zlugok@yandex.ru</p>
+                    <p className='text-1xl sm:text-2xl'>zlugokx@gmail.com</p>
                 </div>
                 <div className='flex items-center space-x-5'>
                     <MapPinIcon className='text-[#f7ab0a] h-7 w-7 animate-pulse'/>
-                    <p className='text-2xl'>Tver, Russian Federation</p>
+                    <p className='text-1xl sm:text-2xl'>Россия, г. Тверь</p>
                 </div>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-2 w-fit mx-auto">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-2 md:w-fit mx-auto max-w-xs sm:max-w-none">
                 <div className='flex space-x-2'>
-                    <input {...register('name')} placeholder='Name' type="text" className='contactInput'/>
-                    <input {...register('email')} placeholder='Email' type="email" className='contactInput'/>
+                    <input {...register('name')} placeholder='Имя' type="text" className='contactInput w-1/2'/>
+                    <input {...register('email')} placeholder='Email' type="email" className='contactInput  w-1/2'/>
                 </div>
-                <input {...register('subject')} placeholder='Subject' type="text" className='contactInput'/>
-                <textarea {...register('message')} placeholder='Message' className='contactInput'></textarea>
-                <button type='submit' className='bg-[#f7ab0a] py-5 px-10 rounded-md text-black font-bold text-lg'>Submit</button>
+                <input {...register('subject')} placeholder='Тема' type="text" className='contactInput'/>
+                <textarea {...register('message')} placeholder='Сообщение' className='contactInput'></textarea>
+                <button type='submit' className='bg-[#f7ab0a] py-5 px-10 rounded-md text-black font-bold text-lg'>Отправить</button>
             </form>
         </div>
     </div>

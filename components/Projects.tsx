@@ -16,7 +16,7 @@ const Projects = ({projects}: Props) => {
     transition={{duration: 1.5}}
     className='h-screen relative flex overflow-hidden flex-col text-left md:flow-row max-w-full justify-evenly mx-auto items-center z-0'>
         <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl" >
-        Мои проекты    
+        проекты    
         </h3>
         <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar
     scrollbar-track-gray-400/20  scrollbar-thumb-[#f7ab0a]'>
@@ -41,7 +41,7 @@ const Projects = ({projects}: Props) => {
                         }}
                         src={urlFor(project?.image).url()} alt=""/>
                         <div className='space-y-10 px-0 md:px-10 max-w-6xl'>
-                            <h4 className='text-4xl font-semibold text-center'>
+                            <h4 className='text-2xl md:text-4xl font-semibold text-center'>
                                 <span className='underline decoration-[#f7ab0a] '>Проект {projects.indexOf(project) + 1} из {projects.length}: </span>
                                {project?.title}
                                  </h4>
@@ -53,7 +53,7 @@ const Projects = ({projects}: Props) => {
                                     alt=""/>
                                  ))}
                                </div>
-                                 <p className='text-lg text-center md:text-left'>
+                                 <p className='text-sm md:text-lg text-center md:text-left'>
                                   {project.summary}
                                  </p>
                         </div>

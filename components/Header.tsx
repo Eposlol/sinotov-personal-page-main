@@ -3,6 +3,7 @@ import { SocialIcon } from 'react-social-icons';
 import {motion} from 'framer-motion'
 import  Link  from 'next/link'
 import { Social } from '../typings';
+
 type Props = {
     socials: Social[]
 }
@@ -54,6 +55,7 @@ const Header = ({socials}: Props) => {
                 network='email'
                 fgColor='gray'
                 bgColor='transparent'
+                url=''
                 />
                 <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>Будь на связи</p>
             </motion.div>
